@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/pass/reg', 'Test\TestController@reg');
+Route::get('/pass/login', 'Test\TestController@login');
