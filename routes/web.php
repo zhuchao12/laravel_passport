@@ -14,5 +14,22 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/pass/reg', 'Test\TestController@reg');
-Route::get('/pass/login', 'Test\TestController@login');
+//登陆
+
+Route::get('login','User\UserController@loginView');
+
+Route::post('login','User\UserController@loginAction');
+
+
+
+//注册
+
+Route::get('register','User\UserController@registerView');
+
+Route::post('register','User\UserController@registerAction');
+
+
+
+
+
+Route::get('center','User\UserController@center')->middleware('check.login');
