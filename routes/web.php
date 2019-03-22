@@ -20,6 +20,8 @@ Route::get('login','User\UserController@loginView');
 
 Route::post('login','User\UserController@loginAction');
 
+Route::post('api/login','User\IndexController@apiLogin');
+
 
 
 //注册

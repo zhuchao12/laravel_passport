@@ -59,57 +59,31 @@
 <script>
 
     function login(){
-
         //e.preventDefault();
-
         var u_name = document.getElementById('exampleInputName1').value;
-
         var u_pwd = document.getElementById('exampleInputPassword1').value;
-
         //alert(u_pwd);
-
         $.ajax({
-
             headers: {
-
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
             },
-
             url: 'login',
-
             data: {u_name:u_name,u_pwd:u_pwd},
-
             async: true, // 异步 || 同步
-
             dataType: 'json',
-
             type: 'post',
-
             timeout: 10000,
-
             success: function(data) {
-
                 // 请求成功
-
                 if(data.errno == 0){
-
                     alert(data.msg);
-
                     location.href = "{{$redirect}}";
-
                 }else{
-
                     var msg = data.errno + ":" + data.msg;
-
                     alert(msg);
-
                 }
-
             },
-
         });
-
     }
 
 </script>
