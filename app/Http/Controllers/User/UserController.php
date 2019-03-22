@@ -219,7 +219,7 @@ class UserController extends Controller
             return $response;
 
         }
-        $pas = $userInfo->password;
+        $pas = $userInfo->pass;
         if(password_verify($password,$pas)){
             $uid = $userInfo->uid;
             $key = 'api:token:' . $uid;
