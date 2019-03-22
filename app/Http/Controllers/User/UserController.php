@@ -220,7 +220,7 @@ class UserController extends Controller
         $pas = $userInfo->pass;
         if(password_verify($password,$pas)){
             $uid = $userInfo->uid;
-            $key = 'api:token:' . $uid;
+            $key = 'token:' . $uid;
             $token = Redis::get($key);
             if(empty($token)){
                 $token = substr(md5(time() + $uid + rand(1000,9999)),10,20);
