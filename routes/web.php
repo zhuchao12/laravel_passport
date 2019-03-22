@@ -31,3 +31,6 @@ Route::post('register','User\UserController@registerAction');
 
 
 Route::get('center','User\UserController@center')->middleware('check.login');
+
+//单点登录
+Route::get('dlogin','User\UserController@dlogin');
