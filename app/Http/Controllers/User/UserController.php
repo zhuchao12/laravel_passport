@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Http\Controllers\User;
 
 
@@ -31,7 +29,8 @@ class UserController extends Controller
 
     public function loginView(Request $request)
     {
-        $redirect = urldecode($request->input('redirect'));
+        $redirect = urldecode($request->input('url'));
+        //echo $redirect;exit;
         if(empty($redirect)){
             $redirect = env('SHOP_URL');
         }
@@ -117,7 +116,7 @@ class UserController extends Controller
      */
     public  function registerView(Request $request)
     {
-        $redirect = urldecode($request->input('redirect'));
+        $redirect = urldecode($request->input('url'));
 
         if(empty($redirect)){
             $redirect = env('SHOP_URL');
