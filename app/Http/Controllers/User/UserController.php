@@ -248,8 +248,7 @@ class UserController extends Controller
     {
         setcookie('xnn_uid',null,time()-1,'/','hz4155.cn',false,true);
         setcookie('xnn_token',null,time()-1,'/','hz4155.cn',false,true);
-        header("Location:http://app.hz4155.cn");
-
+        location.href('http://app.hz4155.cn');
     }
 
 }
