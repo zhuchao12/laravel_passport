@@ -247,9 +247,10 @@ class UserController extends Controller
     public function quit()
     {
         $url = $_GET['url'];
+
         setcookie('xnn_uid',null,time()-1,'/','hz4155.cn',false,true);
         setcookie('xnn_token',null,time()-1,'/','hz4155.cn',false,true);
         header('Location:'.$url);
     }
 
-}
+}var_dump($url);
