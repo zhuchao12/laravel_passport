@@ -32,3 +32,5 @@ Route::post('register','User\UserController@registerAction');
 
 Route::get('center','User\UserController@center')->middleware('check.login');
 
+Route::get('quit','User\UserController@quit');
+
