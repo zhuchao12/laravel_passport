@@ -23,6 +23,7 @@ Route::post('login','User\UserController@loginAction');
 Route::post('api/login','User\UserController@apiLogin');
 
 Route::get('addlist','User\UserController@addlist');
+Route::get('useradd','User\UserController@useradd');
 
 //注册
 Route::get('register','User\UserController@registerView');
