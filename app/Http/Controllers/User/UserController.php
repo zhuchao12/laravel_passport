@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\User;
 
-
-
 use App\Model\UserModel;
 
 use Illuminate\Http\Request;
@@ -66,33 +64,28 @@ class UserController extends Controller
                 Redis::hSet($key,'web',$token);
               //  Redis::set($key,$token);
              //   Redis::setTimeout($key,60*60*24*7);
-              //  var_dump($token);exit;
+              //.  var_dump($token);exit;
             }
-            setcookie('xnn_uid',$uid,time()+86400,'/','hz4155.cn',false,true);
-            setcookie('xnn_token',$token,time()+86400,'/','hz4155.cn',false,true);
-            $request->session()->put('xnn_u_token',$token);
-            $request->session()->put('xnn_uid',$uid);
-            $response = [
-                'errno' =>  0,
-                'msg'   =>  '登陆成功',
-            ];
-        }else{
-            $response = [
-                'errno' =>  40002,
-                'msg'   =>  '登录失败'
-            ];
-        }
-     //   print_r($response);exit;
-        return $response;
 
+        setcookie('xnn_uid',$uid,time()+86400,'/','hz4155.cn',false,true);
+        setcookie('xnn_token',$token,time()+86400,'/','hz4155.cn',false,true);
+        $request->session()->put('xnn_u_token',$token);
+        $request->session()->put('xnn_uid',$uid);
+        $response = [
+            'errno' =>  0,
+            'msg'   =>  '登陆成功',
+        ];
+    }else{
+$response = [
+'errno' =>  40002,
+'msg'   =>  '登录失败'
+];
+}
+//   print_r($response);exit;
+return $response;
     }
 
-    public function webLogin()
-
-    {
-
-
-
+    public function webLogin(){
     }
 
     /**
@@ -123,8 +116,6 @@ class UserController extends Controller
         return view('test.reg',$info);
 
     }
-
-
 
     public function registerAction(Request $request)
     {
@@ -165,7 +156,6 @@ class UserController extends Controller
         $uid=UserModel::insertGetId($data);
 
         if($uid){
-
             $key = 'token:' . $uid;
             $token = substr(md5(time() + $uid + rand(1000,9999)),10,20);
 
@@ -243,6 +233,13 @@ class UserController extends Controller
 
         return $response;
     }
+
+    public function addlist(){
+        $arr = UserModel::get();
+        return $arr;
+    }
+
+
 
     public function quit()
     {

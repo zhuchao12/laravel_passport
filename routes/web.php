@@ -22,7 +22,7 @@ Route::post('login','User\UserController@loginAction');
 
 Route::post('api/login','User\UserController@apiLogin');
 
-
+Route::get('addlist','User\UserController@addlist');
 
 //注册
 Route::get('register','User\UserController@registerView');
@@ -32,5 +32,5 @@ Route::post('register','User\UserController@registerAction');
 
 Route::get('center','User\UserController@center')->middleware('check.login');
 
-Route::get('quit','User\UserController@quit');
+Route::any('quit','User\UserController@quit');
 
