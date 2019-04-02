@@ -117,7 +117,7 @@ return $response;
 
     }
 
-    public function registerAction(Request $request)
+       public function registerAction(Request $request)
     {
         $pass=$request->input('u_pwd');
         $pass1=$request->input('u_pwd1');
@@ -234,9 +234,40 @@ return $response;
         return $response;
     }
 
-    public function addlist(){
+    public function TimeOutLogin(){
+        Redis::del('token:'.$_COOKIE['xnn_uid']);
+        setcookie('xnn_uid',null,time()-1,'/','hz4155.cn',false,true);
+        setcookie('xnn_token',null,time()-1,'/','hz4155.cn',false,true);
+
+        if($_COOKIE['xnn_token'] == null){
+                return [
+                    'error' =>0,
+                    'msg' =>'长时间不操作，强制下线'
+                ]
+        }else{
+            return [
+                'error' =>4565,
+                'msg' =>'清除失败'
+            ]
+        }
+    }
+
+    public function addlist(Request $request){
         $arr = UserModel::get();
-        return $arr;
+
+        foreach ($arr as $k=>$v){
+            $token = Redis::hget('token:',$v->uid,'web');
+            if($token){
+                    $is_login = '已登录';
+            }else{
+                $is_login = '已登录';
+            }
+            $v['is_login'] = $is_login;
+            $info[] = $v;
+        }
+        $is_login = $request->get('is_login');
+
+        return $is_login;
     }
 
     public function useradd(Request $request){
