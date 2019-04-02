@@ -67,14 +67,14 @@
 <div class="flex-center position-ref full-height">
     <div class="top-right links">
 
-        @if($is_login==1)
-            <a href="{{ url('/home') }}">Home</a>
-            <a href="http://passport.hz4155.cn/quit?url={{$url}}">退出</a>
-        @else
-            <a href="http://passport.hz4155.cn/login?url={{$url}}">Login</a>
-            <a href="http://passport.hz4155.cn/register?url={{$url}}">Register</a>
 
-        @endif
+            <a href="{{ url('/home') }}">Home</a>
+            <a href="http://passport.hz4155.cn/quit">退出</a>
+
+            <a href="http://passport.hz4155.cn/login">Login</a>
+            <a href="http://passport.hz4155.cn/register">Register</a>
+
+
 
 
 

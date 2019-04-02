@@ -234,6 +234,7 @@ return $response;
         return $response;
     }
 
+    /*
     public function TimeOutLogin(){
         Redis::del('token:'.$_COOKIE['xnn_uid']);
         setcookie('xnn_uid',null,time()-1,'/','hz4155.cn',false,true);
@@ -251,7 +252,8 @@ return $response;
             ]
         }
     }
-
+    */
+/*
     public function addlist(Request $request){
         $arr = UserModel::get();
 
@@ -269,6 +271,7 @@ return $response;
 
         return $is_login;
     }
+*/
 
     public function useradd(Request $request){
         $uid=$request->input('uid');
