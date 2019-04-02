@@ -69,7 +69,7 @@
 
 
             <a href="{{ url('/home') }}">Home</a>
-            <a href="http://passport.hz4155.cn/quit">退出</a>
+
 
             <a href="http://passport.hz4155.cn/login">Login</a>
             <a href="http://passport.hz4155.cn/register">Register</a>

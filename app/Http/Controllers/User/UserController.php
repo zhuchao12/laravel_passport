@@ -253,25 +253,14 @@ return $response;
         }
     }
     */
-/*
+
     public function addlist(Request $request){
         $arr = UserModel::get();
 
-        foreach ($arr as $k=>$v){
-            $token = Redis::hget('token:',$v->uid,'web');
-            if($token){
-                    $is_login = '已登录';
-            }else{
-                $is_login = '已登录';
-            }
-            $v['is_login'] = $is_login;
-            $info[] = $v;
-        }
-        $is_login = $request->get('is_login');
 
-        return $is_login;
+        return $arr;
     }
-*/
+
 
     public function useradd(Request $request){
         $uid=$request->input('uid');
